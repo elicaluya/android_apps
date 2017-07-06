@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/die2"
-        android:label="@string/app_name"
+        android:label="Pig Game v2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">

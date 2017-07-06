@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView die;
     static final String dieNum = "die number";
     int die_num = 0;
+    static final String win = "win";
+    int state = 0;
+    static final String winner = "winner";
+    int winnerNum = 0;
 
     // Method for displaying the correct image according to the number given
     private void displayDie(int i){
@@ -57,53 +61,79 @@ public class MainActivity extends AppCompatActivity {
         die.setImageResource(id);
     }
 
+    // Determining if a game ust ended and buttons do not need to be pressed
+    private void winState(int i){
+        if (i == 1){
+            btnRoll.setEnabled(false);
+            btnEnd.setEnabled(false);
+        }
+        else {
+            btnRoll.setEnabled(true);
+            btnEnd.setEnabled(true);
+        }
+    }
+
+    // Correctly display the name of winner
+    private void displayWinner(int i){
+        if (i == 0){
+            player_turn.setText(p1_name.getText().toString() + " is the Winner!");
+            player1.setText("WINNER");
+            player2.setText("LOSER");
+        } else if (i == 1){
+            player_turn.setText(p2_name.getText().toString() + " is the Winner!");
+            player2.setText("WINNER");
+            player1.setText("LOSER");
+        }
+        else
+            player_turn.setText("Tie Game");
+
+    }
+
     // Method for checking if there is a winner after each turn
     private void checkWinner(){
         // Checks if player 1 reached 100 first and responds accordingly after player 2's turn
         if (p1Score >= 100){
             if (playerTurn == 0 && p1Score > p2Score){
-                player_turn.setText(p1_name.getText().toString() + " is the Winner!");
-                player1.setText("WINNER");
-                player2.setText("LOSER");
-                btnRoll.setEnabled(false);
-                btnEnd.setEnabled(false);
+                winnerNum = 0;
+                displayWinner(winnerNum);
+                state = 1;
+                winState(state);
             }
 
             else if (playerTurn == 0 && p1Score < p2Score) {
-                player_turn.setText(p2_name.getText().toString() + " is the Winner!");
-                player2.setText("WINNER");
-                player1.setText("LOSER");
-                btnRoll.setEnabled(false);
-                btnEnd.setEnabled(false);
+                winnerNum = 1;
+                displayWinner(winnerNum);
+                state = 1;
+                winState(state);
             }
             else if (playerTurn == 0 && p1Score == p2Score){
-                player_turn.setText("Tie Game");
-                btnRoll.setEnabled(false);
-                btnEnd.setEnabled(false);
+                winnerNum = 2;
+                displayWinner(winnerNum);
+                state = 1;
+                winState(state);
             }
 
         }
         // Checks if player 2 reached 100 first and responds accordingly after player 1's turn
         else if (p2Score >= 100){
             if (playerTurn == 1 && p2Score > p1Score){
-                player_turn.setText(p2_name.getText().toString() + " is the Winner!");
-                player2.setText("WINNER");
-                player1.setText("LOSER");
-                btnRoll.setEnabled(false);
-                btnEnd.setEnabled(false);
+                winnerNum = 1;
+                displayWinner(winnerNum);
+                state =1;
+                winState(state);
             }
 
             else if (playerTurn == 1 && p1Score < p2Score) {
-                player_turn.setText(p1_name.getText().toString() + " is the Winner!");
-                player1.setText("WINNER");
-                player2.setText("LOSER");
-                btnRoll.setEnabled(false);
-                btnEnd.setEnabled(false);
+                winnerNum = 0;
+                displayWinner(winnerNum);
+                state = 1;
+                winState(state);
             }
             else if (playerTurn == 1 && p1Score == p2Score) {
-                player_turn.setText("Tie Game");
-                btnRoll.setEnabled(false);
-                btnEnd.setEnabled(false);
+                winnerNum = 2;
+                displayWinner(winnerNum);
+                state = 1;
+                winState(state);
             }
         }
     }
@@ -124,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt(turnScore,turnPoints);
         savedInstanceState.putInt(turn,playerTurn);
         savedInstanceState.putInt(dieNum,die_num);
+        savedInstanceState.putInt(win,state);
+        savedInstanceState.putInt(winner,winnerNum);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -135,20 +167,17 @@ public class MainActivity extends AppCompatActivity {
         btnRoll = (Button)findViewById(R.id.roll);
         btnEnd = (Button)findViewById(R.id.end);
         btnNew = (Button)findViewById(R.id.new_game);
-
         player1 = (TextView)findViewById(R.id.p1);
         player2 = (TextView)findViewById(R.id.p2);
-
         p1_score = (TextView)findViewById(R.id.p1_score_num);
         p2_score = (TextView)findViewById(R.id.p2_score_num);
         player_turn = (TextView)findViewById(R.id.turn);
         turn_points = (TextView)findViewById(R.id.turn_points_num);
-
         p1_name = (EditText)findViewById(R.id.p1_name);
         p2_name = (EditText)findViewById(R.id.p2_name);
-
         die = (ImageView)findViewById(R.id.die_image);
 
+        // Starting player's turn
         player_turn.setText("Player 1's turn");
 
         // For restoring the instance state when interrupted
@@ -166,7 +195,9 @@ public class MainActivity extends AppCompatActivity {
                 player_turn.setText("Player 2's turn");
             die_num = savedInstanceState.getInt(dieNum);
             displayDie(die_num);
-
+            state = savedInstanceState.getInt(win);
+            winState(state);
+            winnerNum = savedInstanceState.getInt(winner);
         }
         else {
             p1Score = Integer.parseInt(p1_score.getText().toString());
@@ -178,6 +209,9 @@ public class MainActivity extends AppCompatActivity {
             playerTurn = 0;
             player_turn.setText("Player 1's turn");
             displayDie(1);
+            state = 0;
+            winState(state);
+            winnerNum = 0;
         }
 
         // Roll button to pick a random number and add it to the score depending on which number is rolled
@@ -263,8 +297,9 @@ public class MainActivity extends AppCompatActivity {
                 displayDie(1);
                 playerTurn = 0;
                 player_turn.setText("Player 1's turn");
-                btnRoll.setEnabled(true);
-                btnEnd.setEnabled(true);
+                state = 0;
+                winState(state);
+                winnerNum = 0;
             }
         });
 
