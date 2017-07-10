@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="@string/less_score"
+        android:title="Smaller End Score "
+        android:summary="Winning Score of 50"
+        android:defaultValue="false"
+        />
+    <CheckBoxPreference
+        android:key= "@string/more_score"
+        android:title="Larger End Score"
+        android:summary="Winning Score of 150"
+        android:defaultValue="false"
+        />
+    <CheckBoxPreference
+        android:key= "@string/roll_count"
+        android:title="Max Amount of rolls"
+        android:summary="Max amount of rolls is set to 5"
+        android:defaultValue="false"
+        />
+    <CheckBoxPreference
+        android:key= "@string/total_roll"
+        android:title="Total Roll Limit"
+        android:summary="Each player allowed 50 rolls per game"
+        android:defaultValue="false"
+        />
+</PreferenceScreen>

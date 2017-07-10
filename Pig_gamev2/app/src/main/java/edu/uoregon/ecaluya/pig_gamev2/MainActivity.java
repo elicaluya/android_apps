@@ -1,12 +1,18 @@
 package edu.uoregon.ecaluya.pig_gamev2;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -41,6 +47,24 @@ public class MainActivity extends AppCompatActivity {
     int state = 0;
     static final String winner = "winner";
     int winnerNum = 0;
+
+    SharedPreferences prefs;
+    int norm_score_limit = 100;
+    int less_score_limit = 50;
+    int more_score_limit = 150;
+    int roll_limit = 4;
+    int p1MaxRolls = 50;
+    TextView p1_MaxRolls;
+    int p2MaxRolls = 50;
+    TextView p2_MaxRolls;
+    boolean lessScore = false;
+    boolean lessScoreOn = false;
+    boolean moreScore = false;
+    boolean moreScoreOn = false;
+    boolean rollCount = false;
+    boolean rollCountOn = false;
+    boolean totalRoll = false;
+    boolean totalRollOn = false;
 
     // Method for displaying the correct image according to the number given
     private void displayDie(int i){
@@ -89,51 +113,50 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Displays the winner and sets the win state of the game
+    private void setWinState(int i){
+        displayWinner(i);
+        state = 1;
+        winState(state);
+    }
+
     // Method for checking if there is a winner after each turn
     private void checkWinner(){
-        // Checks if player 1 reached 100 first and responds accordingly after player 2's turn
-        if (p1Score >= 100){
+        int score_limit = norm_score_limit;
+        if (lessScoreOn)
+            score_limit = less_score_limit;
+        else if (moreScoreOn)
+            score_limit = more_score_limit;
+
+        // Checks if player 1 reached score_limit first and responds accordingly after player 2's turn
+        if (p1Score >= score_limit){
             if (playerTurn == 0 && p1Score > p2Score){
                 winnerNum = 0;
-                displayWinner(winnerNum);
-                state = 1;
-                winState(state);
+                setWinState(winnerNum);
             }
-
             else if (playerTurn == 0 && p1Score < p2Score) {
                 winnerNum = 1;
-                displayWinner(winnerNum);
-                state = 1;
-                winState(state);
+                setWinState(winnerNum);
             }
             else if (playerTurn == 0 && p1Score == p2Score){
                 winnerNum = 2;
-                displayWinner(winnerNum);
-                state = 1;
-                winState(state);
+                setWinState(winnerNum);
             }
 
         }
-        // Checks if player 2 reached 100 first and responds accordingly after player 1's turn
-        else if (p2Score >= 100){
+        // Checks if player 2 reached score_limit first and responds accordingly after player 1's turn
+        else if (p2Score >= score_limit){
             if (playerTurn == 1 && p2Score > p1Score){
                 winnerNum = 1;
-                displayWinner(winnerNum);
-                state =1;
-                winState(state);
+                setWinState(winnerNum);
             }
-
-            else if (playerTurn == 1 && p1Score < p2Score) {
+            else if (playerTurn == 1 && p1Score > p2Score) {
                 winnerNum = 0;
-                displayWinner(winnerNum);
-                state = 1;
-                winState(state);
+                setWinState(winnerNum);
             }
             else if (playerTurn == 1 && p1Score == p2Score) {
                 winnerNum = 2;
-                displayWinner(winnerNum);
-                state = 1;
-                winState(state);
+                setWinState(winnerNum);
             }
         }
     }
@@ -144,6 +167,119 @@ public class MainActivity extends AppCompatActivity {
             player_turn.setText(p1_name.getText().toString() + "'s turn");
         else
             player_turn.setText(p2_name.getText().toString()+ "'s turn");
+    }
+
+    // Roll button method to pick a random number and add it to the score depending on which number is rolled
+    public void roll(View view){
+        Random rand = new Random();
+        int point = rand.nextInt(6) + 1;
+        die_num = point;
+        displayDie(point);
+
+        // If player one's turn
+        if (playerTurn == 0){
+            if (point != 1){
+                turnPoints += point;
+                turn_points.setText(String.valueOf(turnPoints));
+                if (rollCountOn)
+                    roll_limit--;
+                if (totalRollOn){
+                    p1MaxRolls--;
+                    p1_MaxRolls.setText(String.valueOf(p1MaxRolls));
+                    if (p1MaxRolls == 0)
+                        btnRoll.setEnabled(false);
+                }
+            }
+            else if (point == 1 || roll_limit == 0){
+                p1Score += turnPoints;
+                p1_score.setText(String.valueOf(p1Score));
+                turnPoints = 0;
+                turn_points.setText(String.valueOf(turnPoints));
+                playerTurn = 1;
+                displayTurn(playerTurn);
+                checkWinner();
+                roll_limit = 4;
+                btnRoll.setEnabled(true);
+            }
+        }
+        //If player two's turn
+        else{
+            if (point != 1){
+                turnPoints += point;
+                turn_points.setText(String.valueOf(turnPoints));
+                if (rollCountOn)
+                    roll_limit--;
+                if (totalRollOn){
+                    p2MaxRolls--;
+                    p2_MaxRolls.setText(String.valueOf(p2MaxRolls));
+                    if (p2MaxRolls == 0)
+                        btnRoll.setEnabled(false);
+                }
+
+            }
+            else if (point == 1 || roll_limit == 0){
+                p2Score += turnPoints;
+                p2_score.setText(String.valueOf(p2Score));
+                turnPoints = 0;
+                turn_points.setText(String.valueOf(turnPoints));
+                playerTurn = 0;
+                displayTurn(playerTurn);
+                checkWinner();
+                roll_limit = 4;
+                btnRoll.setEnabled(true);
+            }
+        }
+    }
+
+    // Display Menu in action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+
+    // Actions for items in the menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.menu_settings:
+                startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                return true;
+            case R.id.menu_about:
+                Toast.makeText(this, "Pig Game v2 by Elijah Caluya",Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        lessScore = prefs.getBoolean(getResources().getString(R.string.less_score),true);
+        if (lessScore)
+            lessScoreOn = true;
+        else
+            lessScoreOn = false;
+
+        moreScore = prefs.getBoolean(getResources().getString(R.string.more_score),true);
+        if(moreScore)
+            moreScoreOn = true;
+        else
+            moreScoreOn = false;
+
+        rollCount = prefs.getBoolean(getResources().getString(R.string.roll_count),true);
+        if (rollCount)
+            rollCountOn = true;
+        else
+            rollCountOn = false;
+
+        totalRoll = prefs.getBoolean(getResources().getString(R.string.total_roll),true);
+        if (totalRoll)
+            totalRollOn = true;
+        else
+            totalRollOn = false;
     }
 
     // When saving the instance state
@@ -176,9 +312,14 @@ public class MainActivity extends AppCompatActivity {
         p1_name = (EditText)findViewById(R.id.p1_name);
         p2_name = (EditText)findViewById(R.id.p2_name);
         die = (ImageView)findViewById(R.id.die_image);
+        p1_MaxRolls = (TextView)findViewById(R.id.p1_total_roll_num);
+        p2_MaxRolls = (TextView)findViewById(R.id.p2_total_roll_num);
 
         // Starting player's turn
         player_turn.setText("Player 1's turn");
+
+        PreferenceManager.setDefaultValues(this,R.xml.preferences,false);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // For restoring the instance state when interrupted
         if (savedInstanceState != null){
@@ -213,52 +354,6 @@ public class MainActivity extends AppCompatActivity {
             winState(state);
             winnerNum = 0;
         }
-
-        // Roll button to pick a random number and add it to the score depending on which number is rolled
-        btnRoll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Random rand = new Random();
-                int point = rand.nextInt(6) + 1;
-                die_num = point;
-                displayDie(point);
-
-                // If player one's turn
-                if (playerTurn == 0){
-                    if (point != 1){
-                        turnPoints += point;
-                        turn_points.setText(String.valueOf(turnPoints));
-                    }
-                    else{
-                        p1Score += turnPoints;
-                        p1_score.setText(String.valueOf(p1Score));
-                        turnPoints = 0;
-                        turn_points.setText(String.valueOf(turnPoints));
-                        playerTurn = 1;
-                        displayTurn(playerTurn);
-                        checkWinner();
-                    }
-                }
-                //If player two's turn
-                else{
-                    if (point != 1){
-                        turnPoints += point;
-                        turn_points.setText(String.valueOf(turnPoints));
-                    }
-                    else{
-                        p2Score += turnPoints;
-                        p2_score.setText(String.valueOf(p2Score));
-                        turnPoints = 0;
-                        turn_points.setText(String.valueOf(turnPoints));
-                        playerTurn = 0;
-                        displayTurn(playerTurn);
-                        checkWinner();
-                    }
-                }
-
-
-            }
-        });
 
         // Button for ending the turn for one player
         btnEnd.setOnClickListener(new View.OnClickListener() {
