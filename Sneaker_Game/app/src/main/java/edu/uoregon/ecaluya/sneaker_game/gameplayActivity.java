@@ -32,6 +32,21 @@ public class gameplayActivity extends AppCompatActivity {
 
     public void nextShoe(View v){
         gameplayFragment gameplay = (gameplayFragment)getFragmentManager().findFragmentById(R.id.gameplay_fragment);
-        gameplay.pickRandShoe(v,max,array);
+        if (brandName.equals("Adidas"))
+            gameplay.pickRandShoe(v,max,array);
+        else if (brandName.equals("Air Jordan"))
+            gameplay.pickRandShoe(v,max,array);
+        else if (brandName.equals("Nike"))
+            gameplay.pickRandShoe(v,max,array);
+    }
+
+    public void submitAnswer(View v){
+        gameplayFragment gameplay = (gameplayFragment)getFragmentManager().findFragmentById(R.id.gameplay_fragment);
+        gameplay.submit(v);
+    }
+
+    public void resetGame(View v){
+        gameplayFragment gameplay = (gameplayFragment)getFragmentManager().findFragmentById(R.id.gameplay_fragment);
+        gameplay.reset(v,max,array);
     }
 }
