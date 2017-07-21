@@ -218,7 +218,7 @@ public class Shoe {
         else if (id == R.drawable.aj8_aqua){
             brand = "Jordan";
             model = "Air Jordan 8";
-            colorway = "Olympic";
+            colorway = "Aqua";
         }
         else if (id == R.drawable.aj9_coolgrey){
             brand = "Jordan";

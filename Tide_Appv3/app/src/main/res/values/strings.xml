@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tide_Appv3</string>
+    <string-array name="locations_array">
+        <item>Alameda, CA</item>
+        <item>Monterey, CA</item>
+        <item>San Leandro, CA</item>
+    </string-array>
+</resources>

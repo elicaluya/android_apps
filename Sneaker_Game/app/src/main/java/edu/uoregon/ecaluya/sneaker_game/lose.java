@@ -19,6 +19,6 @@ public class lose extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int)(width*.5),(int)(height*.5));
+        getWindow().setLayout((int)(width*.7),(int)(height*.7));
     }
 }

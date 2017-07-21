@@ -20,11 +20,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/winner_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
+        android:layout_marginTop="56dp"
         android:text="You really know your shoes!"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/winner_text"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

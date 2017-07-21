@@ -1,15 +1,13 @@
-package edu.uoregon.ecaluya.tide_appv2;
-
+package edu.uoregon.ecaluya.tide_appv3;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
-
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
 
@@ -24,14 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int year;
     String dayString;
     String monthString;
+    String url_date;
 
-    String florence_station = "Florence USCG Pier, Suislaw River";
+    String monterey_station = "Monterey";
     String alameda_station = "Alameda";
     String san_leandro_station = "San Leandro Marina";
-
-    Boolean isFlorence = false;
-    Boolean isAlameda = false;
-    Boolean isSanLeandro = false;
+    String monterey_id = "9413450";
+    String alameda_id = "9414750";
+    String san_leandro_id = "9414688";
 
 
     @Override
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 location = "Alameda, CA";
                 break;
             case 1:
-                location = "Florence, OR";
+                location = "Monterey, CA";
                 break;
             case 2:
                 location = "San Leandro, CA";
@@ -81,24 +79,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else
                 monthString = Integer.toString(month);
             year = datePicker.getYear();
-            date = Integer.toString(year) + "/" + monthString + "/" + dayString;
+            date =   monthString + "/" + dayString + "/" + Integer.toString(year);
+            url_date = Integer.toString(year) + monthString + dayString;
 
-            if (location.equals("Florence, OR"))
-                isFlorence = true;
-            else if (location.equals("Alameda, CA"))
-                isAlameda = true;
-            else if (location.equals("San Leandro, CA"))
-                isSanLeandro = true;
 
             Intent intent = new Intent(this,DisplayTides.class);
+            // Add station specific data
+            if (location.equals("Monterey, CA")){
+                intent.putExtra("station", monterey_station);
+                intent.putExtra("stationID",monterey_id);
+            }
+
+            else if (location.equals("Alameda, CA")){
+                intent.putExtra("station", alameda_station);
+                intent.putExtra("stationID",alameda_id);
+            }
+
+            else if (location.equals("San Leandro, CA")){
+                intent.putExtra("station", san_leandro_station);
+                intent.putExtra("stationID",san_leandro_id);
+            }
+
+            // Add other data
             intent.putExtra("location",location);
             intent.putExtra("date",date);
-            if (isFlorence)
-                intent.putExtra("station",florence_station);
-            else if (isAlameda)
-                intent.putExtra("station",alameda_station);
-            else if (isSanLeandro)
-                intent.putExtra("station",san_leandro_station);
+            intent.putExtra("urlDate",url_date);
+
             startActivity(intent);
         }
     }

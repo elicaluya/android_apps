@@ -57,7 +57,6 @@ public class gameplayFragment extends Fragment{
         currentShoe = new Shoe(id);
         shoes.add(currentShoe);
         displayShoe(currentShoe);
-        resetButton.setVisibility(View.GONE);
     }
 
     // Pick next random shoe
@@ -65,17 +64,21 @@ public class gameplayFragment extends Fragment{
         Random rand = new Random();
         int i = rand.nextInt(max);
         int id = array[i];
-        while (shoes.contains(id)){
-            i = rand.nextInt(max);
-            id = array[i];
+        Shoe new_shoe = new Shoe(id);
+        for (Shoe shoe : shoes){
+            while (shoe.getModel() == new_shoe.getModel() && shoe.getColorway() == new_shoe.getColorway()){
+                i = rand.nextInt(max);
+                id = array[i];
+                new_shoe = new Shoe(id);
+            }
         }
         shoeImage.setImageResource(id);
-        currentShoe = new Shoe(id);
+        currentShoe = new_shoe;
         shoes.add(currentShoe);
         displayShoe(currentShoe);
 
-        submitButton.setEnabled(true);
-        nextButton.setEnabled(false);
+        submitButton.setVisibility(View.VISIBLE);
+        nextButton.setVisibility(View.GONE);
     }
 
     // Display shoe picked
@@ -87,8 +90,8 @@ public class gameplayFragment extends Fragment{
     // Submit answer to be checked and respond if game over
     public void submit(View view){
         checkAnswer();
-        nextButton.setEnabled(true);
-        submitButton.setEnabled(false);
+        nextButton.setVisibility(View.VISIBLE);
+        submitButton.setVisibility(View.GONE);
         if (checkEndGame()){
             if (isLose)
                 startActivity(new Intent(getActivity(),lose.class));
@@ -139,9 +142,11 @@ public class gameplayFragment extends Fragment{
         submitButton.setVisibility(View.VISIBLE);
         nextButton.setVisibility(View.VISIBLE);
         missed = 0;
-        numCorrect.setText(Integer.toString(correct));
         correct = 0;
+        numCorrect.setText(Integer.toString(correct));
         numWrong.setText(Integer.toString(missed));
+        isLose = false;
+        isWin = false;
         shoes.clear();
 
         Random rand = new Random();
@@ -152,8 +157,8 @@ public class gameplayFragment extends Fragment{
         shoes.add(currentShoe);
         displayShoe(currentShoe);
 
-        submitButton.setEnabled(true);
-        nextButton.setEnabled(false);
+        submitButton.setVisibility(View.VISIBLE);
+        nextButton.setVisibility(View.GONE);
         resetButton.setVisibility(View.GONE);
     }
 
@@ -175,7 +180,8 @@ public class gameplayFragment extends Fragment{
         entry = (EditText)view.findViewById(R.id.entry_text);
         shoeName = (TextView)view.findViewById(R.id.shoe_name);
 
-        nextButton.setEnabled(false);
+        nextButton.setVisibility(View.GONE);
+        resetButton.setVisibility(View.GONE);
 
         return view;
     }
