@@ -8,7 +8,8 @@
         android:label="Guess the Sneaker"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
+        <activity android:name=".MainMenu"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,13 +17,26 @@
             </intent-filter>
         </activity>
         <activity android:name=".gameplayActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainMenu">
         </activity>
         <activity android:name=".win"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.PopUp">
         </activity>
         <activity android:name=".lose"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.PopUp">
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainMenu">
+        </activity>
+        <activity android:name=".AnswersActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainMenu">
         </activity>
     </application>
 

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Sneaker_Game</string>
+    <string name = "high_limit">Higher_Limit</string>
+    <string name="normal_limit">Normal_Limit</string>
+    <string name = "low_limit">Low_Limit</string>
+    <string name = "hard_mode">Hard_Mode</string>
+    <string name="normal_mode">Normal_Mode</string>
+    <string name = "easy_mode">Easy_Mode</string>
+    <string-array name="brand_array">
+        <item>Adidas</item>
+        <item>Air Jordan</item>
+        <item>Nike</item>
+    </string-array>
 </resources>

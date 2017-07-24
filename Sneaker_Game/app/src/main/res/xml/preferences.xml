@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Change Score Limit"
+        android:key = "change_score_limit">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:id="@+id/Low_Limit"
+            android:icon="@drawable/green_check"
+            android:key="@string/low_limit"
+            android:summary="Winning Score of 7"
+            android:title="Smaller Score Limit" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:id="@+id/High_Limit"
+            android:icon="@drawable/green_check"
+            android:key="@string/normal_limit"
+            android:summary="Winning Score of 10"
+            android:title="Normal Score Limit" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:id="@+id/Normal_Limit"
+            android:icon="@drawable/green_check"
+            android:key="@string/high_limit"
+            android:summary="Winning Score of 15"
+            android:title="Higher Score Limit" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Change Number of Strikes"
+        android:key ="chnage_num_strikes">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:id="@+id/Easy_Mode"
+            android:icon="@drawable/red_x"
+            android:key="@string/easy_mode"
+            android:summary="Strikes Allowed: 5"
+            android:title="Easy Mode" />
+
+        <CheckBoxPreference
+            android:key="@string/normal_mode"
+            android:id="@+id/Normal_Mode"
+            android:icon="@drawable/red_x"
+            android:title="Normal Mode"
+            android:summary="Strikes Allowed: 3"
+            android:defaultValue="true"
+            />
+        <CheckBoxPreference
+            android:key="@string/hard_mode"
+            android:id="@+id/Hard_Mode"
+            android:icon="@drawable/red_x"
+            android:title="Hard Mode"
+            android:summary="Strikes Allowed: 1"
+            android:defaultValue="false"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>
