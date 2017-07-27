@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +26,12 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
 
     ImageView shoeImage;
     Spinner brandSpinner;
-    Spinner shoeSpinner;
+    TextView shoeText;
+    Button upButton;
+    Button downButton;
+
+    String[] currentShoes = null;
+    int index = 0;
 
     ArrayList<Integer> id_adidas;
     ArrayList<Integer> id_jordan;
@@ -39,7 +47,10 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
 
         shoeImage = (ImageView)findViewById(R.id.shoe_image);
         brandSpinner = (Spinner)findViewById(R.id.brand_spinner);
-        shoeSpinner = (Spinner)findViewById(R.id.shoe_spinner);
+        shoeText = (TextView)findViewById(R.id.shoe);
+        upButton = (Button)findViewById(R.id.up_button);
+        downButton = (Button)findViewById(R.id.down_button);
+
 
         id_adidas = getIntent().getIntegerArrayListExtra("adidas ids");
         id_jordan = getIntent().getIntegerArrayListExtra("jordan ids");
@@ -50,25 +61,24 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
         nike = getIntent().getStringArrayListExtra("nike shoes");
         brandSpinner.setOnItemSelectedListener(this);
 
-        shoeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        upButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (brand.equals("Adidas"))
-                    shoeImage.setImageResource(id_adidas.get(position));
-                else if (brand.equals("Air Jordan"))
-                    shoeImage.setImageResource(id_jordan.get(position));
-                else if (brand.equals("Nike"))
-                    shoeImage.setImageResource(id_nike.get(position));
+            public void onClick(View v) {
+                downButton.setEnabled(true);
+                index++;
+                displayShoe();
+                if (index == currentShoes.length-1)
+                    upButton.setEnabled(false);
             }
-
+        });
+        downButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                if (brand.equals("Adidas"))
-                    shoeImage.setImageResource(id_adidas.get(0));
-                else if (brand.equals("Air Jordan"))
-                    shoeImage.setImageResource(id_jordan.get(0));
-                else if (brand.equals("Nike"))
-                    shoeImage.setImageResource(id_nike.get(0));
+            public void onClick(View v) {
+                upButton.setEnabled(true);
+                index--;
+                displayShoe();
+                if(index == 0)
+                    downButton.setEnabled(false);
             }
         });
 
@@ -79,20 +89,29 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
             case 0:
                 brand = "Adidas";
                 String[] adidas_shoes = getModelColorway(brand);
-                shoeSpinner.setAdapter(new ArrayAdapter<String>(this,
-                        android.R.layout.simple_spinner_item,adidas_shoes));
+                currentShoes = adidas_shoes;
+                index = 0;
+                displayShoe();
+                upButton.setEnabled(true);
+                downButton.setEnabled(false);
                 break;
             case 1:
                 brand = "Air Jordan";
                 String[] jordan_shoes = getModelColorway(brand);
-                shoeSpinner.setAdapter(new ArrayAdapter<String>(this,
-                        android.R.layout.simple_spinner_item,jordan_shoes));
+                currentShoes = jordan_shoes;
+                index = 0;
+                displayShoe();
+                upButton.setEnabled(true);
+                downButton.setEnabled(false);
                 break;
             case 2:
                 brand = "Nike";
                 String[] nike_shoes = getModelColorway(brand);
-                shoeSpinner.setAdapter(new ArrayAdapter<String>(this,
-                        android.R.layout.simple_spinner_item,nike_shoes));
+                currentShoes = nike_shoes;
+                index = 0;
+                displayShoe();
+                upButton.setEnabled(true);
+                downButton.setEnabled(false);
                 break;
         }
     }
@@ -106,19 +125,34 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
         String[] array = null;
         if (brand.equals("Adidas")){
             array = new String[adidas.size()];
-            for (int i = 0; i < adidas.size()-1;i++)
+            for (int i = 0; i < adidas.size();i++)
                 array[i] = adidas.get(i);
         }
         else if (brand.equals("Air Jordan")){
             array = new String[jordan.size()];
-            for (int i = 0; i < jordan.size()-1;i++)
+            for (int i = 0; i < jordan.size();i++)
                 array[i] = jordan.get(i);
         }
         else if (brand.equals("Nike")){
             array = new String[nike.size()];
-            for (int i = 0; i < nike.size()-1;i++)
+            for (int i = 0; i < nike.size();i++)
                 array[i] = nike.get(i);
         }
         return array;
+    }
+
+    public void displayShoe(){
+        if (brand.equals("Adidas")){
+            shoeText.setText(currentShoes[index]);
+            shoeImage.setImageResource(id_adidas.get(index));
+        }
+        else if (brand.equals("Air Jordan")) {
+            shoeImage.setImageResource(id_jordan.get(index));
+            shoeText.setText(currentShoes[index]);
+        }
+        else if (brand.equals("Nike")) {
+            shoeImage.setImageResource(id_nike.get(index));
+            shoeText.setText(currentShoes[index]);
+        }
     }
 }

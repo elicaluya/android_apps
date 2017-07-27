@@ -166,6 +166,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         ajButton.setOnClickListener(this);
         nikeButton.setOnClickListener(this);
 
+        // Adding all shoe information for answers
         Shoe shoe;
         for (int i = 0; i < adidasShoes.length;i++) {
             shoe = new Shoe(adidasShoes[i]);
@@ -190,12 +191,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v){
         if (v.getId() == R.id.adidas_button){
             String adidas = "Adidas";
-            int id = getRandShoe(21,adidasShoes);
+            int id = getRandShoe(adidasShoes.length,adidasShoes);
             Intent intent = new Intent(this,gameplayActivity.class);
             intent.putExtra("brand_name",adidas);
             intent.putExtra("id",id);
             intent.putExtra("array",adidasShoes);
-            intent.putExtra("array_max",21);
+            intent.putExtra("array_max",adidasShoes.length);
             intent.putExtra("lowLimit",isLowLimit);
             intent.putExtra("highLimit",isHighLimit);
             intent.putExtra("normalLimit",isNormalLimit);
@@ -206,12 +207,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         }
         else if (v.getId() == R.id.aj_button){
             String aj = "Air Jordan";
-            int id = getRandShoe(22,jordanShoes);
+            int id = getRandShoe(jordanShoes.length,jordanShoes);
             Intent intent = new Intent(this,gameplayActivity.class);
             intent.putExtra("brand_name",aj);
             intent.putExtra("id",id);
             intent.putExtra("array",jordanShoes);
-            intent.putExtra("array_max",22);
+            intent.putExtra("array_max",jordanShoes.length);
             intent.putExtra("lowLimit",isLowLimit);
             intent.putExtra("highLimit",isHighLimit);
             intent.putExtra("normalLimit",isNormalLimit);
@@ -222,12 +223,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         }
         else if (v.getId() == R.id.nike_button){
             String nike = "Nike";
-            int id = getRandShoe(23,nikeShoes);
+            int id = getRandShoe(nikeShoes.length,nikeShoes);
             Intent intent = new Intent(this,gameplayActivity.class);
             intent.putExtra("brand_name",nike);
             intent.putExtra("id",id);
             intent.putExtra("array",nikeShoes);
-            intent.putExtra("array_max",23);
+            intent.putExtra("array_max",nikeShoes.length);
             intent.putExtra("lowLimit",isLowLimit);
             intent.putExtra("highLimit",isHighLimit);
             intent.putExtra("normalLimit",isNormalLimit);
