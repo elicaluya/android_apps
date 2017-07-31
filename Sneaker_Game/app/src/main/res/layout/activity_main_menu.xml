@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.uoregon.ecaluya.sneaker_game.MainMenu"
-    android:background="@drawable/shoe_background">
+    android:background="@drawable/box_background">
 
     <TextView
         android:id="@+id/title"
@@ -64,7 +64,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="13dp"
         android:text="Choose your category:"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/background_light"
         android:textSize="24sp"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
