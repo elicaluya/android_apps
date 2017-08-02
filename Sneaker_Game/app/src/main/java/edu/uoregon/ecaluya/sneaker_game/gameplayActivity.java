@@ -190,11 +190,9 @@ public class gameplayActivity extends AppCompatActivity implements AdapterView.O
         int i = rand.nextInt(max_elements);
         int id = brand_array[i];
 
-        for (int x : shoes){
-            while (id == x){
-                i = rand.nextInt(max_elements);
-                id = brand_array[i];
-            }
+        while (shoes.contains(id)) {
+            i = rand.nextInt(max_elements);
+            id = brand_array[i];
         }
         shoeImage.setImageResource(id);
         currentShoe = new Shoe(id);
