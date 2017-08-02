@@ -91,8 +91,7 @@ public class gameplayActivity extends AppCompatActivity implements AdapterView.O
         isHardMode = getIntent().getExtras().getBoolean("hardMode");
         isNormalMode = getIntent().getExtras().getBoolean("normalMode");
 
-
-
+        // Widgets for buttons and pictures
         brandName = (TextView)findViewById(R.id.brand);
         shoeImage = (ImageView)findViewById(R.id.shoe_image);
         nextButton = (Button)findViewById(R.id.next_button);
