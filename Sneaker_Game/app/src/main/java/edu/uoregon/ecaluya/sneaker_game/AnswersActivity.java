@@ -29,6 +29,8 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
     TextView shoeText;
     Button upButton;
     Button downButton;
+    TextView index_count;
+    TextView max_count;
 
     String[] currentShoes = null;
     int index = 0;
@@ -50,6 +52,8 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
         shoeText = (TextView)findViewById(R.id.shoe);
         upButton = (Button)findViewById(R.id.up_button);
         downButton = (Button)findViewById(R.id.down_button);
+        index_count = (TextView) findViewById(R.id.index_count);
+        max_count = (TextView)findViewById(R.id.max_count);
 
 
         id_adidas = getIntent().getIntegerArrayListExtra("adidas ids");
@@ -145,14 +149,20 @@ public class AnswersActivity extends AppCompatActivity implements AdapterView.On
         if (brand.equals("Adidas")){
             shoeText.setText(currentShoes[index]);
             shoeImage.setImageResource(id_adidas.get(index));
+            index_count.setText(Integer.toString(index+1));
+            max_count.setText("/"+Integer.toString(currentShoes.length));
         }
         else if (brand.equals("Air Jordan")) {
             shoeImage.setImageResource(id_jordan.get(index));
             shoeText.setText(currentShoes[index]);
+            index_count.setText(Integer.toString(index+1));
+            max_count.setText("/"+Integer.toString(currentShoes.length));
         }
         else if (brand.equals("Nike")) {
             shoeImage.setImageResource(id_nike.get(index));
             shoeText.setText(currentShoes[index]);
+            index_count.setText(Integer.toString(index+1));
+            max_count.setText("/"+Integer.toString(currentShoes.length));
         }
     }
 }
