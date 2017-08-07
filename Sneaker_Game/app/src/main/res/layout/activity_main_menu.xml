@@ -17,7 +17,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Sneaker Guessing Game"
+        android:text="Guess the Sneaker"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@android:color/holo_red_dark"

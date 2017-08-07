@@ -13,27 +13,33 @@ public class Shoe {
     public String getBrand(){return this.brand;}
     public int getId(){return this.id;}
 
-    public String[] adidas_models = {"Alphabounce","Dame 3","Iniki Runner","NMD Human Race","NMD R1","NMD R2","UltraBoost 1.0","UltraBoost 2.0","UltraBoost 3.0",
+    public String[] adidas_models = {"Alphabounce","Dame 3","Iniki Runner","Jeremy Scott","Jeremy Scott Wings",
+            "NMD Human Race","NMD R1","NMD R2","UltraBoost 1.0","UltraBoost 2.0","UltraBoost 3.0",
             "Yeezy 350 Boost","Yeezy 350 Boost v2","Yeezy 750 Boost","Yeezy Powerphase"};
-    public String[] adidas_colorways = {"Roots","Black/Gum","Friends and Family","Tangerine","Datamosh","Linen","OG","Solar Red","Three Stripes","Cargo Green",
+    public String[] adidas_colorways = {"Roots","Black/Gum","Batman","Panda","Friends and Family","Tangerine","Bape","Datamosh",
+            "Linen","Nice Kicks","OG","Red Apple","Solar Red","Three Stripes","Cargo Green",
             "Triple White","3M","Multicolor","Reigning Champ","Wood Wood","Bronze","Triple Black","Chinese New Year","Kolor","Oreo","Pride"
-            ,"Moonrock","Oxford Tan","Pirate Black","Turtle Dove","Beluga","Black/Green","Black/Infrared","Bred","Copper","Cream","Zebra","Chocolate","Grey","Gum","Calabasas"};
+            ,"Moonrock","Oxford Tan","Pirate Black","Turtle Dove","Beluga","Black/Green","Black/Infrared","Black/White",
+            "Bred","Copper","Cream","Zebra","Chocolate","Grey","Gum","Calabasas"};
 
 
     public String[] jordan_models = {"Air Jordan 1","Air Jordan 2","Air Jordan 3","Air Jordan 4","Air Jordan 5","Air Jordan 6",
             "Air Jordan 7","Air Jordan 8","Air Jordan 9","Air Jordan 10","Air Jordan 11","Air Jordan 11 Low","Air Jordan 12","Air Jordan 13",
-            "Air Jordan 14"};
-    public String[] jordan_colorways = {"Black Toe","Bred","Royal","Chicago","Black Cement","True Blue","KAWS","Military Blue","White Cement","Black Metallic",
-            "Fire Red","Black Infrared","Laney","Supreme(Desert Camo)","White Infrared","Bordeaux","Olympic","Aqua","Bugs Bunny","Cool Grey","Concord","Legend Blue","Space Jam",
-            "Cherry","Flu Game","French Blue","Taxi","Ferrari","Last Shot"};
+            "Air Jordan 13 Low","Air Jordan 14"};
+    public String[] jordan_colorways = {"Black Toe","Bred","Royal","Chicago","Just Don(Arctic Orange)","Just Don(Beach)","Just Don(Blue)","Black Cement",
+            "True Blue","KAWS","Military Blue","White Cement","Black Metallic", "Fire Red","Grape","Black Infrared","Laney","Supreme(Desert Camo)",
+            "White Infrared","Bordeaux","Olympic","Hare","Aqua","Bugs Bunny","Cool Grey","Columbia","Concord","Space Jam",
+            "Cherry","Flu Game","French Blue","Taxi","Black Cat","Chutney","Ferrari","Last Shot"};
 
 
-    public String[] nike_models = {"Air Presto Mid","Air Zoom Generation","Air Max 1","Air Max 90","Air Max 95","Air Max 97","Air More Uptempo",
-            "Dunk High","Dunk Low","Flyknit Racer","Foamposite One","Air Huarache","KD 4","KD 6","Kobe 9","Kobe 10","Kobe 11","Lebron 8","Lebron 9",
-            "Vapormax","Air Yeezy 1","Air Yeezy 2"};
-    public String[] nike_colorways = {"Acronym","Atmos","University Red","Duck Camo","Moon Landing","Warhawk","First Game","Infrared","Neon","Silver Bullet","Bulls",
-            "De La Soul","Supreme(Blue)","Tiffany","What The","Cali","Heineken","Paris","Pigeon","Supreme(Red)","Be True","Multicolor","Eggplant","Galaxy","Royal Blue","Hyperpunch",
-            "Aunt Pearl","Fade to Black","Beethoven","Shark Jaw","South Beach","Asphalt","Triple Black","Net","Red October"};
+    public String[] nike_models = {"Air Mag","Air Presto","Air Presto Mid","Air Zoom Generation","Air Max 1","Air Max 90",
+            "Air Max 95","Air Max 97","Air More Uptempo","Dunk High","Dunk Low","Flyknit Racer","Foamposite One",
+            "Air Huarache","KD 4","KD 6","Kobe 9","Kobe 10","Kobe 11", "Lebron 8","Lebron 9","Lebron 9 Low","Lebron 11",
+            "Lebron 12","Vapormax","Air Yeezy 1","Air Yeezy 2"};
+    public String[] nike_colorways = {"Back to the Future","Lightning","Unholy Cumulus","Acronym","Atmos","University Red","Duck Camo",
+            "Moon Landing","Warhawk","First Game","Infrared","Neon","Silver Bullet","Bulls","De La Soul","Supreme(Blue)","Skunk","Tiffany",
+            "What The","Cali","Heineken","Paris","Pigeon","Pink Box","Supreme(Red)","Be True","Multicolor","Eggplant","Galaxy","Royal Blue","Hyperpunch",
+            "Aunt Pearl","Fade to Black","Beethoven","Shark Jaw","South Beach","Lebronald Palmer","2K14","Asphalt","Triple Black","Net","Red October"};
 
 
     public String[] getBrandModels(){
@@ -80,6 +86,24 @@ public class Shoe {
             model = "Iniki Runner";
             colorway = "Black/Gum";
         }
+        else if (id == R.drawable.adidas_js_batman){
+            this.id = id;
+            brand = "Adidas";
+            model = "Jeremy Scott Wings";
+            colorway = "Batman";
+        }
+        else if (id == R.drawable.adidas_js_panda){
+            this.id = id;
+            brand = "Adidas";
+            model = "Jeremy Scott";
+            colorway = "Panda";
+        }
+        else if (id == R.drawable.adidas_js_zebra){
+            this.id = id;
+            brand = "Adidas";
+            model = "Jeremy Scott";
+            colorway = "Zebra";
+        }
         else if (id == R.drawable.adidas_nmdhmnrace_ff){
             this.id = id;
             brand = "Adidas";
@@ -91,6 +115,12 @@ public class Shoe {
             brand = "Adidas";
             model = "NMD Human Race";
             colorway = "Tangerine";
+        }
+        else if (id == R.drawable.adidas_nmdr1_bape){
+            this.id = id;
+            brand = "Adidas";
+            model = "NMD R1";
+            colorway = "Bape";
         }
         else if (id == R.drawable.adidas_nmdr1_datamosh){
             this.id = id;
@@ -104,11 +134,23 @@ public class Shoe {
             model = "NMD R1";
             colorway = "Linen";
         }
+        else if (id == R.drawable.adidas_nmdr1_nicekicks){
+            this.id = id;
+            brand = "Adidas";
+            model = "NMD R1";
+            colorway = "Nice Kicks";
+        }
         else if (id == R.drawable.adidas_nmdr1_og){
             this.id = id;
             brand = "Adidas";
             model = "NMD R1";
             colorway = "OG";
+        }
+        else if (id == R.drawable.adidas_nmdr1_redapple){
+            this.id = id;
+            brand = "Adidas";
+            model = "NMD R1";
+            colorway = "Red Apple";
         }
         else if (id == R.drawable.adidas_nmdr1_solar){
             this.id = id;
@@ -236,6 +278,12 @@ public class Shoe {
             model = "Yeezy 350 Boost v2";
             colorway = "Black/Infrared";
         }
+        else if (id == R.drawable.adidas_yzy350v2_blkwhite){
+            this.id = id;
+            brand = "Adidas";
+            model = "Yeezy 350 Boost v2";
+            colorway = "Black/White";
+        }
         else if (id == R.drawable.adidas_yzy350v2_bred){
             this.id = id;
             brand = "Adidas";
@@ -278,6 +326,12 @@ public class Shoe {
             model = "Yeezy 750 Boost";
             colorway = "Gum";
         }
+        else if (id == R.drawable.adidas_yzy750_tb){
+            this.id = id;
+            brand = "Adidas";
+            model = "Yeezy 750 Boost";
+            colorway = "Triple Black";
+        }
         else if (id == R.drawable.adidas_yzypowerphase_calabasas){
             this.id = id;
             brand = "Adidas";
@@ -317,6 +371,24 @@ public class Shoe {
             brand = "Jordan";
             model = "Air Jordan 2";
             colorway = "Chicago";
+        }
+        else if (id == R.drawable.aj2_justdon_arctic_orange){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 2";
+            colorway = "Just Don(Arctic Orange)";
+        }
+        else if (id == R.drawable.aj2_justdon_beach){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 2";
+            colorway = "Just Don(Beach)";
+        }
+        else if (id == R.drawable.aj2_justdon_blue){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 2";
+            colorway = "Just Don(Blue)";
         }
         else if (id == R.drawable.aj3_bc){
             this.id = id;
@@ -372,6 +444,12 @@ public class Shoe {
             model = "Air Jordan 5";
             colorway = "Fire Red";
         }
+        else if (id == R.drawable.aj5_grape){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 5";
+            colorway = "Grape";
+        }
         else if (id == R.drawable.aj5_laney){
             this.id = id;
             brand = "Jordan";
@@ -407,6 +485,12 @@ public class Shoe {
             brand = "Jordan";
             model = "Air Jordan 7";
             colorway = "Bordeaux";
+        }
+        else if (id == R.drawable.aj7_hare){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 7";
+            colorway = "Hare";
         }
         else if (id == R.drawable.aj7_olympic){
             this.id = id;
@@ -450,11 +534,11 @@ public class Shoe {
             model = "Air Jordan 11";
             colorway = "Concord";
         }
-        else if (id == R.drawable.aj11_lgndblu){
+        else if (id == R.drawable.aj11_columbia){
             this.id = id;
             brand = "Jordan";
             model = "Air Jordan 11";
-            colorway = "Legend Blue";
+            colorway = "Columbia";
         }
         else if (id == R.drawable.aj11_spacejam){
             this.id = id;
@@ -486,11 +570,29 @@ public class Shoe {
             model = "Air Jordan 12";
             colorway = "Taxi";
         }
+        else if (id == R.drawable.aj13_blackcat){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 13";
+            colorway = "Black Cat";
+        }
         else if (id == R.drawable.aj13_bred){
             this.id = id;
             brand = "Jordan";
             model = "Air Jordan 13";
             colorway = "Bred";
+        }
+        else if (id == R.drawable.aj13_chicago){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 13";
+            colorway = "Chicago";
+        }
+        else if (id == R.drawable.aj13lo_chutney){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 13 Low";
+            colorway = "Chutney";
         }
         else if (id == R.drawable.aj14_blktoe){
             this.id = id;
@@ -515,6 +617,24 @@ public class Shoe {
         // -------------------------------Nike Shoes-------------------------------
         //
 
+        else if (id == R.drawable.nike_airmag_bttf){
+            this.id = id;
+            brand = "Nike";
+            model = "Air Mag";
+            colorway = "Back to the Future";
+        }
+        else if (id == R.drawable.nike_airpresto_lightning){
+            this.id = id;
+            brand = "Nike";
+            model = "Air Presto";
+            colorway = "Lightning";
+        }
+        else if (id == R.drawable.nike_airpresto_uncumulus){
+            this.id = id;
+            brand = "Nike";
+            model = "Air Presto";
+            colorway = "Unholy Cumulus";
+        }
         else if (id == R.drawable.nike_airprestomid_acronym){
             this.id = id;
             brand = "Nike";
@@ -593,6 +713,12 @@ public class Shoe {
             model = "Dunk High";
             colorway = "Supreme(Blue)";
         }
+        else if (id == R.drawable.nike_dunkhi_skunk){
+            this.id = id;
+            brand = "Nike";
+            model = "Dunk High";
+            colorway = "Skunk";
+        }
         else if (id == R.drawable.nike_dunkhi_tiffany){
             this.id = id;
             brand = "Nike";
@@ -628,6 +754,12 @@ public class Shoe {
             brand = "Nike";
             model = "Dunk Low";
             colorway = "Pigeon";
+        }
+        else if (id == R.drawable.nike_dunklo_pinkbox){
+            this.id = id;
+            brand = "Nike";
+            model = "Dunk Low";
+            colorway = "Pink Box";
         }
         else if (id == R.drawable.nike_dunklo_supremered){
             this.id = id;
@@ -712,6 +844,24 @@ public class Shoe {
             brand = "Nike";
             model = "Lebron 9";
             colorway = "Galaxy";
+        }
+        else if (id == R.drawable.nike_lebron9lo_lebronald){
+            this.id = id;
+            brand = "Nike";
+            model = "Lebron 9 Low";
+            colorway = "Lebronald Palmer";
+        }
+        else if (id == R.drawable.nike_lebron11_2k14){
+            this.id = id;
+            brand = "Nike";
+            model = "Lebron 11";
+            colorway = "2K14";
+        }
+        else if (id == R.drawable.nike_lebron12_whatthe){
+            this.id = id;
+            brand = "Nike";
+            model = "Lebron 12";
+            colorway = "What The";
         }
         else if (id == R.drawable.nike_vapormax_asphalt){
             this.id = id;
