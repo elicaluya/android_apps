@@ -28,10 +28,11 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             R.drawable.adidas_yzy350v2_copper,R.drawable.adidas_yzy350v2_cream,R.drawable.adidas_yzy350v2_zebra,R.drawable.adidas_yzy750_choco,
             R.drawable.adidas_yzy750_grey,R.drawable.adidas_yzy750_gum,R.drawable.adidas_yzy750_tb,R.drawable.adidas_yzypowerphase_calabasas};
 
-    int[] jordanShoes = {R.drawable.aj1_blktoe,R.drawable.aj1_bred,R.drawable.aj1_chicago,R.drawable.aj1_royal,R.drawable.aj2_chicago,
+    int[] jordanShoes = {R.drawable.aj1_blktoe,R.drawable.aj1_bred,R.drawable.aj1_chicago,R.drawable.aj1_newlove,R.drawable.aj1_royal,R.drawable.aj2_chicago,
             R.drawable.aj2_justdon_arctic_orange,R.drawable.aj2_justdon_beach,R.drawable.aj2_justdon_blue,R.drawable.aj3_bc,
-            R.drawable.aj3_tb,R.drawable.aj3_wc,R.drawable.aj4_bc,R.drawable.aj4_kaws,R.drawable.aj4_milblu,R.drawable.aj4_wc,R.drawable.aj5_bm,R.drawable.aj5_firered,
-            R.drawable.aj5_grape,R.drawable.aj5_laney,R.drawable.aj5_supremedc,R.drawable.aj6_blackinfrared,R.drawable.aj6_carmine,R.drawable.aj6_white_infrared,R.drawable.aj7_olympic,
+            R.drawable.aj3_tb,R.drawable.aj3_wc,R.drawable.aj4_bc,R.drawable.aj4_kaws,R.drawable.aj4_milblu,R.drawable.aj4_wc,
+            R.drawable.aj5_belair,R.drawable.aj5_blkgrape,R.drawable.aj5_bm,R.drawable.aj5_firered, R.drawable.aj5_grape,R.drawable.aj5_laney,
+            R.drawable.aj5_oreo,R.drawable.aj5_supremedc,R.drawable.aj5_tokyo,R.drawable.aj6_blackinfrared,R.drawable.aj6_carmine,R.drawable.aj6_white_infrared,R.drawable.aj7_olympic,
             R.drawable.aj7_bordeaux,R.drawable.aj7_hare,R.drawable.aj8_aqua,R.drawable.aj8_bugsbunny,R.drawable.aj9_coolgrey,R.drawable.aj10_chicago,
             R.drawable.aj11_bred,R.drawable.aj11_concord,R.drawable.aj11_columbia,R.drawable.aj11_spacejam,R.drawable.aj11lo_cherry,R.drawable.aj12_flugame,
             R.drawable.aj12_fb,R.drawable.aj12_taxi,R.drawable.aj13_blackcat,R.drawable.aj13_bred,R.drawable.aj13_chicago,R.drawable.aj13lo_chutney,

@@ -26,10 +26,10 @@ public class Shoe {
     public String[] jordan_models = {"Air Jordan 1","Air Jordan 2","Air Jordan 3","Air Jordan 4","Air Jordan 5","Air Jordan 6",
             "Air Jordan 7","Air Jordan 8","Air Jordan 9","Air Jordan 10","Air Jordan 11","Air Jordan 11 Low","Air Jordan 12","Air Jordan 13",
             "Air Jordan 13 Low","Air Jordan 14"};
-    public String[] jordan_colorways = {"Black Toe","Bred","Royal","Chicago","Just Don(Arctic Orange)","Just Don(Beach)","Just Don(Blue)","Black Cement",
-            "True Blue","KAWS","Military Blue","White Cement","Black Metallic", "Fire Red","Grape","Black Infrared","Laney","Supreme(Desert Camo)",
-            "White Infrared","Bordeaux","Olympic","Hare","Aqua","Bugs Bunny","Cool Grey","Columbia","Concord","Space Jam",
-            "Cherry","Flu Game","French Blue","Taxi","Black Cat","Chutney","Ferrari","Last Shot"};
+    public String[] jordan_colorways = {"Black Toe","Bred","New Love","Royal","Chicago","Just Don(Arctic Orange)","Just Don(Beach)","Just Don(Blue)","Black Cement",
+            "True Blue","KAWS","Military Blue","White Cement","Bel Air","Black Grape","Black Metallic","Fire Red","Grape","Black Infrared",
+            "Laney","Oreo","Supreme(Desert Camo)","Tokyo","White Infrared","Bordeaux","Olympic","Hare","Aqua","Bugs Bunny",
+            "Cool Grey","Columbia","Concord","Space Jam","Cherry","Flu Game","French Blue","Taxi","Black Cat","Chutney","Ferrari","Last Shot"};
 
 
     public String[] nike_models = {"Air Mag","Air Presto","Air Presto Mid","Air Zoom Generation","Air Max 1","Air Max 90",
@@ -360,6 +360,12 @@ public class Shoe {
             model = "Air Jordan 1";
             colorway = "Chicago";
         }
+        else if (id == R.drawable.aj1_newlove){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 1";
+            colorway = "New Love";
+        }
         else if (id == R.drawable.aj1_royal){
             this.id = id;
             brand = "Jordan";
@@ -432,6 +438,18 @@ public class Shoe {
             model = "Air Jordan 4";
             colorway = "White Cement";
         }
+        else if (id == R.drawable.aj5_belair){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 5";
+            colorway = "Bel Air";
+        }
+        else if (id == R.drawable.aj5_blkgrape){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 5";
+            colorway = "Black Grape";
+        }
         else if (id == R.drawable.aj5_bm){
             this.id = id;
             brand = "Jordan";
@@ -456,11 +474,23 @@ public class Shoe {
             model = "Air Jordan 5";
             colorway = "Laney";
         }
+        else if (id == R.drawable.aj5_oreo){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 5";
+            colorway = "Oreo";
+        }
         else if (id == R.drawable.aj5_supremedc){
             this.id = id;
             brand = "Jordan";
             model = "Air Jordan 5";
             colorway = "Supreme(Desert Camo)";
+        }
+        else if (id == R.drawable.aj5_tokyo){
+            this.id = id;
+            brand = "Jordan";
+            model = "Air Jordan 5";
+            colorway = "Tokyo";
         }
         else if (id == R.drawable.aj6_blackinfrared){
             this.id = id;
