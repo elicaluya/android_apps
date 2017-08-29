@@ -27,4 +27,32 @@
         android:textStyle="bold"
         android:layout_below="@+id/loser_text"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/score_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Score:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/loser_text"
+        android:layout_alignStart="@+id/loser_text"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp" />
+
+    <TextView
+        android:id="@+id/score_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/score_text"
+        android:layout_alignBottom="@+id/score_text"
+        android:layout_alignRight="@+id/loser_text"
+        android:layout_alignEnd="@+id/loser_text"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp" />
 </RelativeLayout>

@@ -212,10 +212,17 @@ public class gameplayActivity extends AppCompatActivity implements AdapterView.O
         nextButton.setVisibility(View.VISIBLE);
         submitButton.setVisibility(View.GONE);
         if (checkEndGame()){
-            if (isLose)
-                startActivity(new Intent(this,lose.class));
-            else if (isWin)
-                startActivity(new Intent(this,win.class));
+            if (isLose){
+                Intent intent = new Intent(this, lose.class);
+                intent.putExtra("scoreNum",correct);
+                startActivity(intent);
+            }
+
+            else if (isWin) {
+                Intent intent = new Intent(this,win.class);
+                intent.putExtra("scoreNum",correct);
+                startActivity(intent);
+            }
         }
     }
     // Reset the game

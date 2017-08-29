@@ -27,4 +27,32 @@
         android:textStyle="bold"
         android:layout_below="@+id/winner_text"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/score_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:text="Score:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/winner_text"
+        android:layout_alignStart="@+id/winner_text" />
+
+    <TextView
+        android:id="@+id/score_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_alignBaseline="@+id/score_text"
+        android:layout_alignBottom="@+id/score_text"
+        android:layout_toRightOf="@+id/score_text"
+        android:layout_toEndOf="@+id/score_text" />
 </RelativeLayout>

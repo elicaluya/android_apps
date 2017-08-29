@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -172,9 +173,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         PreferenceManager.setDefaultValues(this,R.xml.preferences,false);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        ImageButton adidasButton = (ImageButton)findViewById(R.id.adidas_button);
-        ImageButton ajButton = (ImageButton)findViewById(R.id.aj_button);
-        ImageButton nikeButton = (ImageButton)findViewById(R.id.nike_button);
+        Button adidasButton = (Button)findViewById(R.id.adidas_button);
+        Button ajButton = (Button)findViewById(R.id.aj_button);
+        Button nikeButton = (Button)findViewById(R.id.nike_button);
         adidasButton.setOnClickListener(this);
         ajButton.setOnClickListener(this);
         nikeButton.setOnClickListener(this);
