@@ -332,18 +332,22 @@ public class gameplayActivity extends AppCompatActivity implements AdapterView.O
         if (modelChoice == null)
             modelChoice = "";
         if (modelChoice.equals(currentShoe.getModel()) && colorwayChoice.equals(currentShoe.getColorway())) {
-            Toast.makeText(this,"CORRECT! "+ modelChoice + " " + colorwayChoice,
-                    Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, correct.class);
+            intent.putExtra("shoeModel",currentShoe.getModel());
+            intent.putExtra("shoeColorway",currentShoe.getColorway());
             correct++;
             numCorrect.setText(Integer.toString(correct) +"/"+Integer.toString(scoreLimit));
             correctImage.setVisibility(View.VISIBLE);
+            startActivity(intent);
         }
         else{
-            Toast.makeText(this,"WRONG! Answer: "+ currentShoe.getModel() + " " + currentShoe.getColorway(),
-                    Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, wrong.class);
+            intent.putExtra("shoeModel",currentShoe.getModel());
+            intent.putExtra("shoeColorway",currentShoe.getColorway());
             missed++;
             numWrong.setText(Integer.toString(missed) +"/"+Integer.toString(strikes));
             incorrectImage.setVisibility(View.VISIBLE);
+            startActivity(intent);
         }
     }
 

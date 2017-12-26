@@ -38,6 +38,12 @@
             android:screenOrientation="portrait"
             android:parentActivityName=".MainMenu">
         </activity>
+        <activity android:name =".correct"
+            android:theme = "@style/AppTheme.PopUp">
+        </activity>
+        <activity android:name=".wrong"
+            android:theme="@style/AppTheme.PopUp">
+        </activity>
     </application>
 
 </manifest>

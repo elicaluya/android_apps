@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light">
+
+    <TextView
+        android:id="@+id/correct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="112dp"
+        android:text="Correct!"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:text="Model:"
+        android:textSize="18sp"
+        android:layout_below="@+id/correct"
+        android:layout_alignLeft="@+id/correct"
+        android:layout_alignStart="@+id/correct" />
+
+    <TextView
+        android:id="@+id/model_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="model"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/model"
+        android:layout_alignBottom="@+id/model"
+        android:layout_toRightOf="@+id/colorway"
+        android:layout_toEndOf="@+id/colorway"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
+
+    <TextView
+        android:id="@+id/colorway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Colorway:"
+        android:textSize="18sp"
+        android:layout_below="@+id/model"
+        android:layout_alignRight="@+id/model"
+        android:layout_alignEnd="@+id/model"
+        android:layout_marginTop="63dp" />
+
+    <TextView
+        android:id="@+id/colorway_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/colorway"
+        android:layout_alignLeft="@+id/model_text"
+        android:layout_alignStart="@+id/model_text"
+        android:text="colorway"
+        android:textSize="18sp" />
+</RelativeLayout>
