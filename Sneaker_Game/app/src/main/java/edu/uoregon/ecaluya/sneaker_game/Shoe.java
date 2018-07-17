@@ -27,7 +27,7 @@ public class Shoe {
     public String[] jordan_models = {"Air Jordan 1","Air Jordan 2","Air Jordan 3","Air Jordan 4","Air Jordan 5","Air Jordan 6",
             "Air Jordan 7","Air Jordan 8","Air Jordan 9","Air Jordan 10","Air Jordan 11","Air Jordan 11 Low","Air Jordan 12","Air Jordan 13",
             "Air Jordan 13 Low","Air Jordan 14"};
-    public String[] jordan_colorways = {"Black Toe","Bred","New Love","Royal","Chicago","Gold Top 3","Off-White","Shattered Backboard",
+    public String[] jordan_colorways = {"Black Toe","Bred","New Love","Royal","Chicago","Gold Top 3","Off-White Chicago","Shattered Backboard",
             "Shadow","Just Don(Arctic Orange)","Just Don(Beach)","Just Don(Blue)","Black Cement","True Blue","Grateful","Oregon",
             "KAWS","Military Blue","White Cement","Bel Air","Black Grape","Black Metallic","Fire Red","Grape","Raging Bull Red Suede","Black Infrared",
             "Laney","Oreo","Supreme(Desert Camo)","Tokyo","White Infrared","Bordeaux","Olympic","Hare","Aqua","Bugs Bunny",
@@ -465,11 +465,11 @@ public class Shoe {
             model = "Air Jordan 1";
             colorway = "New Love";
         }
-        else if (id == R.drawable.aj1_offwhite){
+        else if (id == R.drawable.aj1_offwhitechi){
             this.id = id;
             brand = "Jordan";
             model = "Air Jordan 1";
-            colorway = "Off-White";
+            colorway = "Off-White Chicago";
         }
         else if (id == R.drawable.aj1_royal){
             this.id = id;
