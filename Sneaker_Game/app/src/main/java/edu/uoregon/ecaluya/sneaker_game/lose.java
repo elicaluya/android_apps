@@ -31,7 +31,7 @@ public class lose extends Activity implements View.OnClickListener{
             R.drawable.adidas_yzy350v2_copper,R.drawable.adidas_yzy350v2_cream,R.drawable.adidas_yzy350v2_semifrozen,R.drawable.adidas_yzy350v2_zebra, R.drawable.adidas_yzy700_waverunner,
             R.drawable.adidas_yzy750_choco,R.drawable.adidas_yzy750_grey,R.drawable.adidas_yzy750_gum,R.drawable.adidas_yzy750_tb,R.drawable.adidas_yzypowerphase_calabasas};
 
-    int[] jordanShoes = {R.drawable.aj1_blktoe,R.drawable.aj1_bred,R.drawable.aj1_chicago,R.drawable.aj1_goldtop3,R.drawable.aj1_newlove,R.drawable.aj1_offwhitechi,
+    int[] jordanShoes = {R.drawable.aj1_blktoe,R.drawable.aj1_bred,R.drawable.aj1_chicago,R.drawable.aj1_goldtop3,R.drawable.aj1_newlove,R.drawable.aj1_offwhtchi,
             R.drawable.aj1_royal,R.drawable.aj1_sbb,R.drawable.aj1_shadow,R.drawable.aj2_chicago,R.drawable.aj2_justdon_arctic_orange,
             R.drawable.aj2_justdon_beach,R.drawable.aj2_justdon_blue,R.drawable.aj3_bc,R.drawable.aj3_grateful,R.drawable.aj3_oregon,
             R.drawable.aj3_tb,R.drawable.aj3_wc,R.drawable.aj4_bc,R.drawable.aj4_kaws,R.drawable.aj4_milblu,R.drawable.aj4_oregon,R.drawable.aj4_wc,

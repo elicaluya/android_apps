@@ -31,17 +31,19 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             R.drawable.adidas_yzy350v2_copper,R.drawable.adidas_yzy350v2_cream,R.drawable.adidas_yzy350v2_semifrozen,R.drawable.adidas_yzy350v2_zebra, R.drawable.adidas_yzy700_waverunner,
             R.drawable.adidas_yzy750_choco,R.drawable.adidas_yzy750_grey,R.drawable.adidas_yzy750_gum,R.drawable.adidas_yzy750_tb,R.drawable.adidas_yzypowerphase_calabasas};
 
-    int[] jordanShoes = {R.drawable.aj1_blktoe,R.drawable.aj1_bred,R.drawable.aj1_chicago,R.drawable.aj1_goldtop3,R.drawable.aj1_newlove,R.drawable.aj1_offwhitechi,
-            R.drawable.aj1_royal,R.drawable.aj1_sbb,R.drawable.aj1_shadow,R.drawable.aj2_chicago,R.drawable.aj2_justdon_arctic_orange,
-            R.drawable.aj2_justdon_beach,R.drawable.aj2_justdon_blue,R.drawable.aj3_bc,R.drawable.aj3_grateful,R.drawable.aj3_oregon,
-            R.drawable.aj3_tb,R.drawable.aj3_wc,R.drawable.aj4_bc,R.drawable.aj4_kaws,R.drawable.aj4_milblu,R.drawable.aj4_oregon,R.drawable.aj4_wc,
+    int[] jordanShoes = {R.drawable.aj1_blktoe,R.drawable.aj1_bluemoon,R.drawable.aj1_bred,R.drawable.aj1_bredtoe,R.drawable.aj1_chicago,R.drawable.aj1_claygreen,
+            R.drawable.aj1_fragment,R.drawable.aj1_goldtop3,R.drawable.aj1_newlove,R.drawable.aj1_offwhtchi,R.drawable.aj1_offwhtunc,R.drawable.aj1_offwhtwht,
+            R.drawable.aj1_royal,R.drawable.aj1_sbb,R.drawable.aj1_shadow,R.drawable.aj1_trackred,R.drawable.aj1_yellowochre,R.drawable.aj2_chicago,R.drawable.aj2_justdon_arctic_orange,
+            R.drawable.aj2_justdon_beach,R.drawable.aj2_justdon_blue,R.drawable.aj3_bc,R.drawable.aj3_grateful,R.drawable.aj3_katrina,R.drawable.aj3_oregon,
+            R.drawable.aj3_seoul,R.drawable.aj3_tinker,R.drawable.aj3_tb,R.drawable.aj3_wc,R.drawable.aj4_bc,R.drawable.aj4_cactusjack,R.drawable.aj4_kaws,
+            R.drawable.aj4_levisblack,R.drawable.aj4_levisdenim,R.drawable.aj4_leviswht,R.drawable.aj4_milblu,R.drawable.aj4_oregon,R.drawable.aj4_wc,
             R.drawable.aj5_belair,R.drawable.aj5_blkgrape,R.drawable.aj5_bm,R.drawable.aj5_firered, R.drawable.aj5_grape,R.drawable.aj5_laney,R.drawable.aj5_oregon,
             R.drawable.aj5_oreo,R.drawable.aj5_ragingbull_redsuede,R.drawable.aj5_supremedc,R.drawable.aj5_tokyo,R.drawable.aj6_blackinfrared,
-            R.drawable.aj6_carmine,R.drawable.aj6_white_infrared,R.drawable.aj7_olympic,R.drawable.aj7_bordeaux,R.drawable.aj7_hare,R.drawable.aj8_aqua,
-            R.drawable.aj8_bugsbunny,R.drawable.aj9_coolgrey,R.drawable.aj10_chicago,R.drawable.aj11_bred,R.drawable.aj11_concord,R.drawable.aj11_columbia,
-            R.drawable.aj11_spacejam,R.drawable.aj11_winlike96,R.drawable.aj11lo_cherry,R.drawable.aj12_flugame,R.drawable.aj12_fb,
-            R.drawable.aj12_taxi,R.drawable.aj13_blackcat,R.drawable.aj13_bred,R.drawable.aj13_chicago,R.drawable.aj13lo_chutney,
-            R.drawable.aj14_blktoe,R.drawable.aj14_ferrari,R.drawable.aj14_lastshot};
+            R.drawable.aj6_carmine,R.drawable.aj6_gatorade,R.drawable.aj6_likemike,R.drawable.aj6_white_infrared,R.drawable.aj7_olympic,R.drawable.aj7_bordeaux,
+            R.drawable.aj7_hare,R.drawable.aj8_aqua,R.drawable.aj8_bugsbunny,R.drawable.aj9_coolgrey,R.drawable.aj10_chicago,R.drawable.aj11_bred,R.drawable.aj11_capngown,
+            R.drawable.aj11_concord,R.drawable.aj11_columbia,R.drawable.aj11_spacejam,R.drawable.aj11_winlike82,R.drawable.aj11_winlike96,R.drawable.aj11lo_cherry,
+            R.drawable.aj11lo_unc,R.drawable.aj12_flugame,R.drawable.aj12_fb,R.drawable.aj12_taxi,R.drawable.aj13_blackcat,R.drawable.aj13_bred,R.drawable.aj13_chicago,
+            R.drawable.aj13lo_chutney,R.drawable.aj14_blktoe,R.drawable.aj14_ferrari,R.drawable.aj14_lastshot};
 
     int[] nikeShoes = {R.drawable.nike_af1lo_offwhite,R.drawable.nike_airmag_bttf,R.drawable.nike_airpresto_lightning,R.drawable.nike_airpresto_offwhite,
             R.drawable.nike_airpresto_uncumulus,R.drawable.nike_huarache_hyperpunch,R.drawable.nike_airprestomid_acronym,R.drawable.nike_airzg_1stgame,R.drawable.nike_am1_airmaxday,
