@@ -105,7 +105,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="47dp"
-        android:text="Shoe pictures taken from FlightClub.com and FinishLine.com"
+        android:text="Shoe pictures taken from FlightClub.com, StockxX.com, and FinishLine.com"
         android:textAlignment="center"
         android:textStyle="italic"
         app:layout_constraintHorizontal_bias="1.0"
