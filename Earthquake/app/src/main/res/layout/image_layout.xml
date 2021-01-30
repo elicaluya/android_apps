@@ -14,7 +14,7 @@
         android:layout_gravity="center"/>
 
     <TextView
-        android:id="@+id/alert_message"
+        android:id="@+id/dialog_mag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

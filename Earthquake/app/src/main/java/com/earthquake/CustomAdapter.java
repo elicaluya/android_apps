@@ -12,6 +12,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
+/*
+* Adapter class for populating the Item list with the fetched data.
+* Implements necessary methods for extending BaseAdapter.
+* getView() method does the action of filling out a layout with the necessary info
+* and adding it as a an item in the ListView.
+*/
 public class CustomAdapter extends BaseAdapter {
 
     Context context;
@@ -51,6 +58,7 @@ public class CustomAdapter extends BaseAdapter {
         magnitude = (TextView) convertView.findViewById(R.id.magnitude);
         depth = (TextView) convertView.findViewById(R.id.depth);
 
+        // Populate TextViews with formatted earthquake info
         Double mag = list.get(position).getMagnitude();
         magnitude.setText(Double.toString(mag));
         coordinates.setText("Location: " + list.get(position).getLatitude() + ", " + list.get(position).getLongitude()
@@ -59,6 +67,7 @@ public class CustomAdapter extends BaseAdapter {
         depth.setText("Depth: " + list.get(position).getDepth());
 
 
+        // Make background red and some text bold if magnitude is greater than or equal to 8 to distinguish it from others
         if (mag >= 8.0){
             item_list.setBackgroundColor(Color.parseColor("#f498ad"));
             magnitude.setTypeface(null, Typeface.BOLD);

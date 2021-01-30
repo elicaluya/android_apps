@@ -1,5 +1,9 @@
 package com.earthquake;
 
+/*
+* Class for EarthquakeInfo objects from JSON objects returned by the api
+* Contains setter and getter methods for all attributes
+*/
 public class EarthquakeInfo {
     String id;
     Double magnitude;
