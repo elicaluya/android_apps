@@ -3,7 +3,6 @@ package com.earthquake;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.junit.Rule;
@@ -12,6 +11,7 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -30,7 +30,7 @@ public class EarthquakeInstrumentedTest {
     public void testActivity(){
         ma = mainActivity.getActivity();
 
-        ListView lv = (ListView) ma.findViewById(R.id.earthquake_list);
+        RecyclerView rv = (RecyclerView) ma.findViewById(R.id.earthquake_list);
 
         LayoutInflater inflater = ma.getLayoutInflater();
         View itemList = inflater.inflate(R.layout.item_list, null);
@@ -46,7 +46,7 @@ public class EarthquakeInstrumentedTest {
 
         // Checking that all of the views get filled after running the main activity
         assertNotNull("mainActivity is null", ma);
-        assertNotNull("ListView is null", lv);
+        assertNotNull("RecyclerView is null", rv);
         assertNotNull("Magnitude TextView is null", mag);
         assertNotNull("Coordinates TextView is null", coord);
         assertNotNull("Date TextView is null", date);

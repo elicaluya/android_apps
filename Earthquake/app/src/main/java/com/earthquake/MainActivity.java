@@ -2,15 +2,15 @@ package com.earthquake;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -28,58 +28,58 @@ import java.util.ArrayList;
 
 
 /*
-* Main Activity class of the app that starts the main process of populating the ListView.
+* Main Activity class of the app that starts the main process of populating the RecyclerView.
 * onCreate() method will immediately start the background process of fetching data from the api
-* and then the UI thread that will use the CustomAdapter to populate the ListView with the new data.
+* and then the UI thread that will use the RecyclerViewAdapter to populate the RecyclerView with the new data.
 */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.ItemClickListener{
 
-    public static ListView lv;
+    public static RecyclerView recyclerView;
+    RecyclerViewAdapter recyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lv = (ListView) findViewById(R.id.earthquake_list);
-
-        // Creating on click listener for clicking on a list item
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Create Alert Dialog when list item is clicked
-                AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
-                adb.setTitle("Earthquake Info:");
-
-                // Inflate the view with the ImageView to show the magnitude picture
-                LayoutInflater inflater = getLayoutInflater();
-                View dialogLayout = inflater.inflate(R.layout.image_layout, null);
-                adb.setView(dialogLayout);
-                EarthquakeInfo ei = (EarthquakeInfo) parent.getItemAtPosition(position);
-                adb.setPositiveButton("OK",null);
-                AlertDialog dialog = adb.show();
-
-                // Show the magnitude centered using the same image layout as the magnitude picture
-                LinearLayout ll = (LinearLayout) dialog.findViewById(R.id.image_layout);
-                TextView messageText = (TextView) ll.findViewById(R.id.dialog_mag);
-                messageText.setGravity(Gravity.CENTER);
-                messageText.setText("Magnitude: " + ei.getMagnitude());
-                dialog.setView(messageText);
-                dialog.show();
-            }
-        });
+        recyclerView = findViewById(R.id.earthquake_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Start background process to fetch data from api
         FetchData process = new FetchData();
         process.execute();
     }
 
+    // Method to handle what happens when user clicks on an item in the RecyclerView
+    @Override
+    public void onItemClick(View view, int position) {
+        // Create Alert Dialog when list item is clicked
+        AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+        adb.setTitle(getString(R.string.dialog_title));
+
+        // Inflate the view with the ImageView to show the magnitude picture
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogLayout = inflater.inflate(R.layout.image_layout, null);
+        adb.setView(dialogLayout);
+        EarthquakeInfo ei = (EarthquakeInfo) recyclerViewAdapter.getItem(position);
+        adb.setPositiveButton("OK",null);
+        AlertDialog dialog = adb.show();
+
+        // Show the magnitude centered using the same image layout as the magnitude picture
+        LinearLayout ll = (LinearLayout) dialog.findViewById(R.id.image_layout);
+        assert ll != null;
+        TextView messageText = (TextView) ll.findViewById(R.id.dialog_mag);
+        messageText.setGravity(Gravity.CENTER);
+        messageText.setText(String.format("%s %s", getString(R.string.magnitude), ei.getMagnitude()));
+        dialog.setView(messageText);
+        dialog.show();
+    }
 
 
     /*
     * Class for creating background process to fetch data from api.
-    * doInBackground() method will pull the data from the api and put into a list that will be later used to populate the ListView
-    * onPostExecute() method will use the CustomAdapter class to populate the ListView with the data we pulled from the api
+    * doInBackground() method will pull the data from the api and put into a list that will be later used to populate the RecyclerView
+    * onPostExecute() method will use the CustomAdapter class to populate the RecyclerView with the data we pulled from the api
     */
     public class FetchData extends AsyncTask<Void, Void, Void> {
 
@@ -135,14 +135,14 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        // UI thread to populate ListView with the data from the api
+        // UI thread to populate RecyclerView with the data from the api
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            // Populate item list with JSON objects we just fetched
-            CustomAdapter adapter = new CustomAdapter(MainActivity.this, eqlist);
-            MainActivity.lv.setAdapter(adapter);
+            recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, eqlist);
+            recyclerViewAdapter.setItemClickListener(MainActivity.this);
+            MainActivity.recyclerView.setAdapter(recyclerViewAdapter);
         }
     }
 }

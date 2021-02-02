@@ -5,13 +5,13 @@ package com.earthquake;
 * Contains setter and getter methods for all attributes
 */
 public class EarthquakeInfo {
-    String id;
-    Double magnitude;
-    String date;
-    String depth;
-    String source;
-    String longitude;
-    String latitude;
+    private String id;
+    private Double magnitude;
+    private String date;
+    private String depth;
+    private String source;
+    private String longitude;
+    private String latitude;
 
     public void setId(String id) {
         this.id = id;

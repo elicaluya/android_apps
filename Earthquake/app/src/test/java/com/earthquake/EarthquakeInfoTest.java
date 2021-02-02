@@ -44,36 +44,39 @@ public class EarthquakeInfoTest {
     }
 
 
-    // Testing methods for CustomAdapter class
+    // Testing methods for RecyclerViewAdapter class
     @Test
     public void testAdapter() {
         MainActivity mainActivity = new MainActivity();
         populate(eqlist);
-        CustomAdapter customAdapter = new CustomAdapter(mainActivity, eqlist);
+
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(mainActivity, eqlist);
 
         // Checking that there are three objects in the adapter
-        assertEquals(3, customAdapter.getCount());
-        assertNotNull(customAdapter.getItem(1));
+        assertEquals(3, recyclerViewAdapter.getItemCount());
+        assertNotNull(recyclerViewAdapter.getItem(1));
 
         // Check that we can pull the first item in the adapter and that it is valid
-        EarthquakeInfo e = (EarthquakeInfo) customAdapter.getItem(0);
+        EarthquakeInfo e = (EarthquakeInfo) recyclerViewAdapter.getItem(0);
         assertEquals(expectedSource, e.getSource());
 
-        // Check that getItemId is valid
-        assertEquals(0, customAdapter.getItemId(0));
+        // Checking that getItemId() works
+        assertEquals(0, recyclerViewAdapter.getItemId(0));
+        assertEquals(1, recyclerViewAdapter.getItemId(1));
+        assertEquals(2, recyclerViewAdapter.getItemId(2));
     }
 
 
-    // Testing that CustomerAdapter methods will throw IndexOutOfBoundsException
+    // Testing that RecyclerViewAdapter methods will throw IndexOutOfBoundsException
     @Test(expected = IndexOutOfBoundsException.class)
     public void testIndexOutOfBounds(){
         MainActivity mainActivity = new MainActivity();
         ArrayList<EarthquakeInfo> list = new ArrayList<>();
-        CustomAdapter customAdapter = new CustomAdapter(mainActivity, eqlist);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(mainActivity, eqlist);
 
         // Both calls below should throw IndexOutOfBoundsException since the list is empty
-        EarthquakeInfo e = (EarthquakeInfo) customAdapter.getItem(0);
-        long idTest = customAdapter.getItemId(0);
+        EarthquakeInfo e = (EarthquakeInfo) recyclerViewAdapter.getItem(0);
+        long idTest = recyclerViewAdapter.getItemId(0);
     }
 
 
